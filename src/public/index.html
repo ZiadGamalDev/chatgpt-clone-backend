@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatGPT Clone API</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 {
+        color: #0366d6;
+      }
+      .card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .status {
+        display: inline-block;
+        background-color: #28a745;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+      .social-links {
+        margin-top: 20px;
+      }
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 15px;
+      }
+      .social-links img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ChatGPT Clone API</h1>
+    <div class="card">
+      <p><span class="status">ONLINE</span></p>
+      <p><strong>Version:</strong> 1.0.0</p>
+      <p><strong>Frontend:</strong> <a href="https://chatgpt-clone-frontend-alpha.vercel.app/" target="_blank">https://chatgpt-clone-frontend-alpha.vercel.app/</a></p>
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/ziad-gamal/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+        LinkedIn Profile
+      </a>
+      <a href="https://github.com/ZiadGamalDev" target="_blank">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+        GitHub Profile
+      </a>
+    </div>
+    <p>© <span id="year"></span> ChatGPT Clone</p>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

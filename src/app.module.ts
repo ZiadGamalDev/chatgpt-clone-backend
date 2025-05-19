@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { OpenAiModule } from './openai/openai.module';
 import { ChatModule } from './chat/chat.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -11,5 +13,7 @@ import { ChatModule } from './chat/chat.module';
     OpenAiModule,
     ChatModule,
   ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
