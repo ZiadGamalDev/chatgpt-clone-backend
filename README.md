@@ -55,6 +55,10 @@ src/
 
 Server will run at `http://localhost:3001` (or your configured port).
 
+## 🌐 Production Deployment
+
+The backend is deployed and running at: [https://chatgpt-clone-backend.dinamo-app.com/](https://chatgpt-clone-backend.dinamo-app.com/)
+
 ## 🌐 Frontend Repo
 
 👉 [ChatGPT Clone Frontend](https://github.com/ZiadGamalDev/chatgpt-clone-frontend)
