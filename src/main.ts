@@ -6,8 +6,14 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   
-  // Removed CORS configuration - Cloudflare handles CORS on the server
-  // app.use(cors()); - REMOVED to avoid duplicate headers
+  // Enable CORS with minimal configuration to handle OPTIONS requests
+  // Cloudflare will override headers, but we need NestJS to respond to OPTIONS
+  app.enableCors({
+    origin: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: false,
+  });
   
   app.useStaticAssets(join(__dirname, '..', 'src', 'public'));
 
