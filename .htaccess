@@ -1,0 +1,26 @@
+# Disable directory browsing
+Options -Indexes
+
+# Enable mod_rewrite
+RewriteEngine On
+
+# Proxy all requests to Node.js application running on port 3001
+RewriteRule ^(.*)$ http://localhost:3001/$1 [P,L]
+
+# Set proper headers for proxy
+RewriteCond %{HTTP:Upgrade} websocket [NC]
+RewriteCond %{HTTP:Connection} upgrade [NC]
+RewriteRule ^/?(.*) "ws://localhost:3001/$1" [P,L]
+
+# Handle CORS headers
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+
+# Handle preflight OPTIONS requests
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Custom error pages
+ErrorDocument 404 "API endpoint not found"
+ErrorDocument 500 "Internal server error"
