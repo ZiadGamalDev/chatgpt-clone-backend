@@ -1,4 +1,4 @@
-import { Controller, Post, Body, HttpException, HttpStatus } from "@nestjs/common";
+import { Controller, Post, Body, HttpException, HttpStatus, HttpCode } from "@nestjs/common";
 import { OpenAiService } from "./openai.service";
 
 @Controller("chat")
@@ -6,6 +6,7 @@ export class OpenAiController {
   constructor(private readonly openAiService: OpenAiService) {}
 
   @Post()
+  @HttpCode(HttpStatus.OK)
   async chat(@Body("userId") userId: string, @Body("message") message: string) {
     try {
       if (!userId || !message) {
