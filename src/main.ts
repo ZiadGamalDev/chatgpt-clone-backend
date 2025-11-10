@@ -6,37 +6,18 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   
-  // Only handle OPTIONS requests without setting CORS headers
-  // Let Cloudflare handle all CORS headers to avoid duplicates
-  app.use((req, res, next) => {
-    if (req.method === 'OPTIONS') {
-      // Respond to OPTIONS requests without setting any headers
-      // Cloudflare will add the CORS headers
-      res.status(204).send();
-      return;
-    }
-    next();
+  // Enable CORS for local development
+  app.enableCors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    credentials: true,
   });
   
   app.useStaticAssets(join(__dirname, '..', 'src', 'public'));
 
-  const port = process.env.PORT ?? 3000;
+  const port = process.env.PORT ?? 3001;
   await app.listen(port);
 
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 
-import mongoose from "mongoose";
-
-async function connectDB() {
-  try {
-    await mongoose.connect(process.env.MONGO_URI ?? "mongodb://localhost:27017/chatgpt-clone");
-    console.log("MongoDB Connected Successfully!");
-  } catch (error) {
-    console.error("MongoDB Connection Error:", error);
-    process.exit(1);
-  }
-}
-
-connectDB();
 bootstrap();

@@ -8,8 +8,17 @@ import { AppService } from './app.service';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_URI ?? 'mongodb://localhost:27017/chatgpt-clone'),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
+    MongooseModule.forRoot(
+      process.env.MONGO_URI ?? 'mongodb://localhost:27017/chatgpt-clone',
+      {
+        retryWrites: true,
+        w: 'majority',
+      }
+    ),
     OpenAiModule,
     ChatModule,
   ],
