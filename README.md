@@ -1,18 +1,18 @@
-# ChatGPT Clone – Backend 🧠
+# ZAI – Backend 🧠
 
-This repository contains the backend code for the [ChatGPT Clone Frontend](https://github.com/ZiadGamalDev/chatgpt-clone-frontend), built using **NestJS** and integrated with **OpenAI API**.
+This repository contains the backend code for the [ZAI Frontend](https://github.com/ZiadGamalDev/zai-frontend), built using **NestJS** and integrated with **AI API**.
 
 ## 🚀 Features
 
 - RESTful API to handle user chat input.
-- Connects to OpenAI to get AI-generated responses.
+- Connects to AI service to get AI-generated responses.
 - Modular NestJS structure.
 - Smooth integration with the frontend via HTTP.
 
 ## 🧱 Technologies Used
 
 - **NestJS** (TypeScript)
-- **OpenAI SDK**
+- **AI SDK**
 - **Axios / HTTP Client**
 - **Node.js**
 
@@ -34,8 +34,8 @@ src/
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/ZiadGamalDev/chatgpt-clone-backend.git
-   cd chatgpt-clone-backend
+   git clone https://github.com/ZiadGamalDev/zai-backend.git
+   cd zai-backend
    ```
 
 2. Install dependencies:
@@ -57,11 +57,11 @@ Server will run at `http://localhost:3001` (or your configured port).
 
 ## 🌐 Production Deployment
 
-The backend is deployed and running at: [https://chatgpt-clone-api.ziadgamal.com/](https://chatgpt-clone-api.ziadgamal.com/)
+The backend is deployed and running at: [https://zai-api.ziadgamal.com/](https://zai-api.ziadgamal.com/)
 
 ## 🌐 Frontend Repo
 
-👉 [ChatGPT Clone Frontend](https://github.com/ZiadGamalDev/chatgpt-clone-frontend)
+👉 [ZAI Frontend](https://github.com/ZiadGamalDev/zai-frontend)
 
 ## 📜 License
 

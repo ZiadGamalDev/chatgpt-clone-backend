@@ -33,8 +33,8 @@ export class OpenAiService {
 
       return botResponse;
     } catch (error) {
-      console.error("Error calling OpenAI:", error.response?.data || error.message);
-      throw new Error("Failed to fetch response from OpenAI");
+      console.error("Error calling AI service:", error.response?.data || error.message);
+      throw new Error("Failed to fetch AI response");
     }
   }
 }
